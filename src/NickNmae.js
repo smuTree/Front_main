@@ -19,14 +19,20 @@ export default function NickName() {
 
     // GLTF 모델을 포함한 회전하는 컴포넌트
     function RotatingPlanet() {
-        useFrame(() => {
+        useFrame((state) => {
             if (planetRef.current) {
-                planetRef.current.rotation.y += 0.01; // Y축을 기준으로 회전 (공전 효과)
+                //planetRef.current.rotation.y += 0.01; // Y축을 기준으로 회전 (공전 효과)
+                const time = state.clock.getElapsedTime();
+                const radius = 3; // 공전 반지름
+                const speed = 0.3;
+                planetRef.current.position.x = radius * Math.cos(time * speed); // X축 공전
+                planetRef.current.position.z = radius * Math.sin(time * speed); // Z축 공전
+                planetRef.current.rotation.y += 0.01; // 자전
             }
         });
 
         return (
-            <group ref={planetRef} position={[0, 0, 0]} scale={[0.55, 0.55, 0.55]}>
+            <group ref={planetRef} position={[0, 0, 0]} scale={[0.2, 0.2, 0.2]}>
                 <primitive object={scene} />
             </group>
         );
@@ -43,11 +49,11 @@ export default function NickName() {
 
             <Html center>
                 <div className="centered-container">
-                    <span>닉네임을 입력하세요</span>
+                    <h1>Nickname</h1>
                     <input 
                         id='Nickname' 
                         type='text' 
-                        placeholder='name' 
+                        placeholder='이름을 입력하세요' 
                         className="input"
                     /><br />
                     <input 
