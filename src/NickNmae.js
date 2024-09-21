@@ -2,18 +2,52 @@ import React from 'react';
 import { Html } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber'; // Import Canvas
 
+
+const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
+
 export default function NickName() {
+    const navigate = useNavigate();
+
     function createNickname(){
         const nickname = document.getElementById("Nickname").value;
         console.log(nickname);
+
+        let NickName = {
+            method: 'POST',
+            body: JSON.stringify({nickname}),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'    
+            }
+        };
+        fetch(`${BACKEND_IP}/Nickname`,NickName)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return res.json(); 
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+        navigate('/InGame');
+
     }
     return (
         <Canvas>
             <Html center>
-                <div style={{ textAlign: 'center', padding: '20px', backgroundColor: 'black' }}>
-                    <h1>닉네임 입력</h1>
-                    <input id='Nickname' type='text' placeholder='닉네임을 입력하세요' 
-                    style={{ textAlign: 'center', padding: '20px', width:'500px', height:'50px', fontSize:'30px', fontWeight: 'bold'}}/><br></br><br></br>
+                <div className="container">
+                    <span style={{width: '500px'}}>닉네임을 입력하세요 </span>
+                    <input 
+                        id='Nickname' 
+                        type='text' 
+                        placeholder='name' 
+                        className="input"
+                    /><br />
+
                     <input 
                         type='submit' 
                         value='입력' 

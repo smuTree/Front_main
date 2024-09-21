@@ -6,6 +6,7 @@ import { Vector2, Vector3, Raycaster, EdgesGeometry, LineSegments, LineBasicMate
 import { useStore } from "../hooks/useStore";
 import { useGameContext } from "./GameContext";
 
+
 const JUMP_FORCE = 5;
 const SPEED = 7;
 
@@ -68,18 +69,16 @@ export const Player = () => {
     const submitPost = (e) => {
         
         console.log("SCORE: " + weaponMade);
-        const post = {
-            weaponMade: weaponMade + 1,
-        };
-
-        fetch('http://172.30.1.62:3000/InGame/post',{
-            method: "POST",
+        const total = weaponMade + 1;
+        let totalscore = {
+            method: 'POST',
+            body: JSON.stringify({total}),
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'    
-            },
-            body: JSON.stringify(post),
-        })
+            }
+        };
+        fetch(`http://172.30.1.62:3000/InGame/score`,totalscore)
         .then((res) => {
             if (!res.ok) {
                 throw new Error("Network response was not ok");
@@ -148,5 +147,7 @@ export const Player = () => {
     }, [camera, scene, addCube, meltCrystal, removeCube, cubesRemoved, setCubesRemoved, crystalMelted, setCrystalMelted, weaponMade, setWeaponMade]);
 
 };
+
+
 
 
