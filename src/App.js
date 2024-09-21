@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
-        <Particle />
+        {/*<Particle />*/}
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
