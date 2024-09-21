@@ -10,15 +10,11 @@ export default function Main() {
 
   function clickLogin() {
     console.log("play now button clicked");
-    navigate('/login');
+    navigate('/NickName');
   }
 
   function clickRanking() {
     navigate('/Ranking');
-  }
-
-  function clickGame() {
-    navigate('/InGame');
   }
 
   return (
@@ -37,7 +33,7 @@ export default function Main() {
         <div className="centered-container">
           <h1>CosmicMiner</h1>
           {/* <button className="button" onClick={clickGame}>Start</button> */}
-          <button className="button" onClick={clickLogin}>Login</button>
+          <button className="button" onClick={clickLogin}>Start</button>
           <button className="button" onClick={clickRanking}>Ranking</button>
         </div>
       </Html>
