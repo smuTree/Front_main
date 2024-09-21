@@ -7,30 +7,8 @@ export default function KakaoLogin() {
   const REST_API_KEY = process.env.REACT_APP_KAKAO_API_KEY;
   const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
   const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT;
-  // const REDIRECT_URI = `http://${BACKEND_IP}:${BACKEND_PORT}/login/oauth/kakao`;
   const REDIRECT_URI = `http://172.30.1.54:8080/login/oauth/kakao`;
   
-  // const handleKakaoLogin = async () => {
-  //   // const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code`;
-  //   // window.location.href = link;
-  //   const response = await fetch('http://172.30.1.54:8080/login/oauth/kakao');
-  //   const kakaoAuthUrl = await response.text(); // URL을 받아옴
-  //   window.location.href = kakaoAuthUrl; // 카카오 인증 페이지로 리다이렉트
-  // };
-
-  // const handleKakaoLogin = async () => {
-  //   try {
-  //     // 백엔드의 카카오 로그인 엔드포인트로 요청
-  //     const response = await fetch(`https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`);
-  //     const kakaoAuthUrl = await response.text(); // URL을 받아옴
-      
-  //     // 카카오 인증 페이지로 리다이렉트
-  //     window.location.href = kakaoAuthUrl; 
-  //   } catch (error) {
-  //     console.error("Error during Kakao login:", error);
-  //   }
-  // };
-
   const handleKakaoLogin = () => {
     const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code`;
     window.location.href = kakaoAuthUrl; // 카카오 인증 페이지로 리다이렉트
