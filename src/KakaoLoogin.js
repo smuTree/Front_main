@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import styles from "./Login.module.css";
 
 export default function KakaoLogin() {
@@ -8,7 +9,6 @@ export default function KakaoLogin() {
   const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT;
   // const REDIRECT_URI = `http://${BACKEND_IP}:${BACKEND_PORT}/login/oauth/kakao`;
   const REDIRECT_URI = `http://172.30.1.54:8080/login/oauth/kakao`;
- 
   
   // const handleKakaoLogin = async () => {
   //   // const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code`;
