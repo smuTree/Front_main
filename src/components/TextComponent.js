@@ -34,7 +34,7 @@ export const TextComponent = () => {
         position={[0, 5, -10]}
         color="#FFFFFF"
       >
-        {'3. 모루에서 크리스탈 재련'}
+        {'3. 모루에서 크리스탈 제련'}
       </DreiText> 
 
       <DreiText
@@ -72,7 +72,7 @@ export const TextComponent = () => {
         rotation={[0, -Math.PI / 2, 0]}
         color="#FFFFFF"
       >
-        {'큐브 Shift + 좌클릭 시 클리스탈 채굴'}
+        {'큐브 Shift + 좌클릭 시 크리스탈 채굴'}
       </DreiText>
 
       <DreiText
@@ -93,7 +93,7 @@ export const TextComponent = () => {
         rotation={[0, Math.PI / 2, 0]}
         color="#FFFFFF"
       >
-        {'용광로 좌클릭 시 클리스탈 용해'}
+        {'용광로 좌클릭 시 크리스탈 용해'}
       </DreiText>
 
       <DreiText
@@ -114,7 +114,7 @@ export const TextComponent = () => {
         rotation={[0, Math.PI / 2, 0]}
         color="#FFFFFF"
       >
-        {'모루 좌클릭 시 클리스탈 재련'}
+        {'모루 좌클릭 시 크리스탈 제련'}
       </DreiText>
 
       <DreiText

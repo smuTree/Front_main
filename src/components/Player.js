@@ -65,6 +65,34 @@ export const Player = () => {
     const [addCube, meltCrystal, removeCube] = useStore((state) => [state.addCube, state.meltCrystal, state.removeCube]);
 
     const { cubesRemoved, setCubesRemoved, crystalMelted, setCrystalMelted, weaponMade, setWeaponMade } = useGameContext(); 
+    const submitPost = (e) => {
+        
+        console.log("SCORE: " + weaponMade);
+        const post = {
+            weaponMade: weaponMade + 1,
+        };
+
+        fetch('http://172.30.1.62:3000/InGame/post',{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'    
+            },
+            body: JSON.stringify(post),
+        })
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return res.json(); 
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+    };
     useEffect(() => {
         const handleClick = (event) => {
             event.stopPropagation();
@@ -103,43 +131,13 @@ export const Player = () => {
                         setCrystalMelted(crystalMelted + 1);
                     }
                 } 
-                if (clickedObject.name === "anvil") {
-                    if(crystalMelted > 0){
-                            setCrystalMelted(crystalMelted - 1);
-                            setWeaponMade(weaponMade + 1);
-                            
+                    if (clickedObject.name === "anvil") {
+                        if(crystalMelted > 0){
+                                setCrystalMelted(crystalMelted - 1);
+                                setWeaponMade(weaponMade + 1);
 
-                            const submitPost = (e) => {
-    
-                                console.log("SCORE: " + weaponMade);
-                                const post = {
-                                    weaponMade: weaponMade + 1,
-                                };
-
-                                fetch(`http://localhost:3000/InGame/post`, {
-                                    method: "POST",
-                                    headers: {
-                                        'Content-Type': 'application/json',
-                                        'Accept': 'application/json'    
-                                    },
-                                    body: JSON.stringify(post),
-                                })
-                                .then((res) => {
-                                    if (!res.ok) {
-                                        throw new Error("Network response was not ok");
-                                    }
-                                    return res.json(); 
-                                })
-                                .then((data) => {
-                                    console.log(data);
-                                })
-                                .catch((error) => {
-                                    console.error("Error:", error);
-                                });
-                            };
-
-                            submitPost();
-                    }
+                                submitPost();
+                        }
 
                 } 
             }
