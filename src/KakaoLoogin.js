@@ -7,7 +7,7 @@ export default function KakaoLogin() {
   const REST_API_KEY = process.env.REACT_APP_KAKAO_API_KEY;
   const BACKEND_IP = process.env.REACT_APP_BACKEND_IP;
   const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT;
-  const REDIRECT_URI = `http://172.30.1.54:8080/login/oauth/kakao`;
+  const REDIRECT_URI = `http://${BACKEND_IP}:${BACKEND_PORT}/login/oauth/kakao`;
   
   const handleKakaoLogin = () => {
     const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code`;
@@ -51,8 +51,6 @@ export default function KakaoLogin() {
       const userData = await fetchUserData(accessToken);
       console.log(userData); // 사용자 정보 출력
 
-      // // 로그인 성공 후 /InGame으로 리다이렉트
-      // navigate('/InGame');
     } catch (error) { //로그인 실패 시 콘솔 출력 
       console.error("Error:", error);
     }
