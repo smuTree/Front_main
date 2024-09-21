@@ -9,6 +9,8 @@ import Login from './Login';
 import Ranking from './Ranking';
 import InGame from './InGame';
 import NickName from './NickNmae';
+import Error from './Error';
+
 
 import {
   BrowserRouter as Router,
@@ -28,6 +30,7 @@ function App() {
           <Route path='/login/oauth/kakao' element={<Redirection />} />
           <Route path="/InGame" element={<InGame />} />
           <Route path="/NickName" element={<NickName />}/>
+          <Route path="/error" element={<Error/>} />
         </Routes>
         {/* If you have other UI components outside Canvas */}
       </div>

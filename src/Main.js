@@ -36,7 +36,7 @@ export default function Main() {
       <Html center>
         <div className="centered-container">
           <h1>CosmicMiner</h1>
-          <button className="button" onClick={clickGame}>Start</button>
+          {/* <button className="button" onClick={clickGame}>Start</button> */}
           <button className="button" onClick={clickLogin}>Login</button>
           <button className="button" onClick={clickRanking}>Ranking</button>
         </div>
