@@ -15,7 +15,7 @@ h1 {
     margin-top: 8px;
     font-size: 70px; /* 텍스트 크기 */
     color: white; /* 텍스트 색상 */
-    margin-bottom: 100px; /* 아래쪽 여백 */
+    margin-bottom: 100px;  /* 아래쪽 여백 */
 }
 
 .button {
@@ -29,6 +29,10 @@ h1 {
     width: 350px; /* 버튼 가로 길이 고정 */
     height: 60px;
     margin : 10px;
+}
+
+.button:first-of-type {
+    margin-top: 50px; /* 첫 번째 버튼 위에 여백 추가 */
 }
 
 .button:hover {
