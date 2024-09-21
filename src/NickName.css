@@ -14,7 +14,7 @@ h1 {
     margin-bottom: 50px;  /* 아래쪽 여백 */
 }
 
-.input {
+.input-name {
     text-align: center;
     padding: 15px;
     width: 500px; /* 고정된 너비 */
@@ -27,10 +27,10 @@ h1 {
 }
 
 
-.button {
+.name-button {
     background-color: transparent; /* 버튼 배경 투명 */
     border: 1px solid white; /* 바깥 라인 */
-    padding: 15px 30px; /* 버튼 패딩 */
+   
     font-size: 20px; /* 텍스트 크기 */
     color: white; /* 텍스트 색상 */
     cursor: pointer;
