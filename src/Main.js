@@ -10,7 +10,7 @@ export default function Main() {
 
   function clickLogin() {
     console.log("play now button clicked");
-    navigate('/NickName');
+    navigate('/Login');
   }
 
   function clickRanking() {
